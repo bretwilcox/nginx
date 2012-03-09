@@ -35,16 +35,5 @@ class nginx (
 	  require => File['nginx-conf'];
 	}
 	
-	service { 'nginx':
-	  ensure     => running,
-	  enable     => true,
-	  hasrestart => true,
-	  hasstatus  => true,
-	  subscribe  => File['/opt/nginx/conf/nginx.conf'],
-	  require    => [
-	    File['nginx-conf'],
-	    File['nginx-init']
-	  ],
-	}
 }
 
